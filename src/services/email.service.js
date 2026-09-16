@@ -3,10 +3,11 @@ const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
+    type: 'OAuth2',
     user: process.env.EMAIL_USER,
-    ClientId: process.env.CLIENT_ID,
-    ClientSecret: process.env.CLIENT_SECRET,
-    RefreshToken: process.env.REFRESH_TOKEN 
+    clientId: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    refreshToken: process.env.REFRESH_TOKEN 
   }
 });
 
@@ -47,6 +48,13 @@ async function sendRegistrationEmail(userEmail, name) {
 
 }
 
-module.exports = {
-    sendRegistrationEmail
+async function sendLoginNotificationEmail(userEmail, name) {
+    const subject = "Login Notification";
+    const text = `Hello ${name},\n\nWe noticed a login to your account. If this was you, no action is needed. If you did not log in, please secure your account.\n\nBest regards,\nThe Backend-ledger Team`;
+    const html = `<p>Hello ${name},</p><p>We noticed a login to your account. If this was you, no action is needed. If you did not log in, please secure your account.</p><p>Best regards,<br>The Backend-ledger Team</p>`;
+    await sendEmail(userEmail, subject, text, html);
+}
+
+module.exports = {    sendRegistrationEmail,
+    sendLoginNotificationEmail
 };

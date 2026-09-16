@@ -46,7 +46,10 @@ async function userLoginController(req, res) {
 
     res.cookie('token', token)
 
-    res.status(200).json({user:{userId: user._id, name: user.name, email: user.email}, token }); 
+    res.status(200).json({user:{userId: user._id, name: user.name, email: user.email}, token })
+    
+    // Send login notification email
+    await emailService.sendLoginNotificationEmail(user.email, user.name); 
 }
 
 module.exports = { userRegisterController, userLoginController }
