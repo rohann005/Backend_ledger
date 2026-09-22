@@ -8,5 +8,9 @@ const router = express.Router();
 
 router.post("/", authMiddleware.authMiddleware, accountController.createAccountController);
 
+router.get("/", authMiddleware.authMiddleware,
+    accountController.getUserAccountController
+)
+
 
 module.exports = router;
