@@ -1,0 +1,7 @@
+$kind: http-request
+url: http://localhost:3000/api/accounts/balance/6ab2717c9c73a0ba4772cd6c
+method: GET
+body:
+  type: json
+  content: ""
+order: 4153972782542977

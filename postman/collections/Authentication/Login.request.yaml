@@ -3,5 +3,7 @@ url: http://localhost:3000/api/auth/login
 method: POST
 body:
   type: json
-  content: ""
+  content: "{\"email\": \"rohankumar@gmail.com\",\r
+
+    \"password\": \"test123\"}"
 order: 4136909129506883
