@@ -1,4 +1,7 @@
 $kind: http-request
-url: http://localhost:3000/api/account/
+url: http://localhost:3000/api/accounts
 method: GET
+body:
+  type: json
+  content: ""
 order: 283417512993414

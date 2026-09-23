@@ -1,4 +1,7 @@
 $kind: http-request
 url: http://localhost:3000/api/transaction/system/initial-funds
 method: POST
+body:
+  type: json
+  content: ""
 order: 1790079022802
