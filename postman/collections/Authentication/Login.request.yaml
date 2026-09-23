@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:3000/api/auth/login
+method: POST
+order: 4136909129506883
